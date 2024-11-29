@@ -12,7 +12,7 @@ import seaborn as sns
 # -----------------------------------------------------------------------
 import math
 from itertools import combinations
-
+import pickle
 
 # Para pruebas estadísticas
 # -----------------------------------------------------------------------
@@ -51,7 +51,7 @@ class AnalisisChiCuadrado:
         print("Tabla de contingencia:")
         display(self.tabla_contingencia)
         return self.tabla_contingencia
-
+    
     def realizar_prueba_chi_cuadrado(self):
         """
         Realiza la prueba de Chi-cuadrado para la tabla de contingencia generada.
@@ -96,12 +96,13 @@ class Encoding:
         - frequency_encoding(): Realiza codificación de frecuencia en las columnas especificadas en el diccionario de codificación.
     """
 
-    def __init__(self, dataframe, variable_respuesta, diccionario_encoding):
+    def __init__(self, dataframe, variable_respuesta, diccionario_encoding,ruta_guardar_encoder):
         self.dataframe = dataframe
         self.diccionario_encoding = diccionario_encoding
         self.variable_respuesta = variable_respuesta
-    
-    def one_hot_encoding(self):
+        self.ruta_guardar_encoder = ruta_guardar_encoder
+
+    def one_hot_encoding(self,nombre_encoder = "onehot_encoder.pkl"):
         """
         Realiza codificación one-hot en las columnas especificadas en el diccionario de codificación.
 
@@ -115,7 +116,11 @@ class Encoding:
         if col_encode:
 
             # instanciamos la clase de OneHot
-            one_hot_encoder = OneHotEncoder()
+            one_hot_encoder = OneHotEncoder(categories='auto', 
+                                            drop=None, 
+                                            sparse_output=True, 
+                                            dtype='float', 
+                                            handle_unknown='error')
 
             # transformamos los datos de las columnas almacenadas en la variable col_code
             trans_one_hot = one_hot_encoder.fit_transform(self.dataframe[col_encode])
@@ -128,7 +133,9 @@ class Encoding:
             self.dataframe = pd.concat([self.dataframe.reset_index(drop=True), oh_df.reset_index(drop=True)], axis=1)
         
         self.dataframe.drop(columns=col_encode, inplace=True)
-    
+        # Guardar el encoder
+        with open(f'{self.ruta_guardar_encoder}/{nombre_encoder}', 'wb') as f:
+            pickle.dump(one_hot_encoder, f)
         return self.dataframe
     
     def get_dummies(self, prefix='category', prefix_sep="_"):
@@ -157,7 +164,7 @@ class Encoding:
     
         return self.dataframe
 
-    def ordinal_encoding(self):
+    def ordinal_encoding(self,nombre_encoder = "ordinal_encoder.pkl"):
         """
         Realiza codificación ordinal en las columnas especificadas en el diccionario de codificación.
 
@@ -189,6 +196,9 @@ class Encoding:
             # Concatenamos el DataFrame original con el DataFrame de las columnas codificadas.
             self.dataframe = pd.concat([self.dataframe.reset_index(drop=True), ordinal_encoder_df], axis=1)
 
+        # Guardar el encoder
+        with open(f'{self.ruta_guardar_encoder}/{nombre_encoder}', 'wb') as f:
+            pickle.dump(ordinal_encoder, f)
         return self.dataframe
 
 
@@ -214,26 +224,28 @@ class Encoding:
      
         return self.dataframe
 
-    def target_encoding(self):
+    def target_encoding(self,nombre_encoder = "target_encoder.pkl"):
         """
         Realiza codificación target en la variable especificada en el diccionario de codificación.
 
         Returns:
         - dataframe: DataFrame de pandas, el DataFrame con codificación target aplicada.
         """
-        
         # accedemos a la clave de 'target' para poder extraer las columnas a las que que queramos aplicar Target Encoding. En caso de que no exista la clave, esta variable será una lista vacía
         col_encode = self.diccionario_encoding.get("target", [])
-
         # si hay contenido en la lista 
         if col_encode:
-  
             target_encoder = TargetEncoder(cols=col_encode)
-            variables_encoded = target_encoder.fit_transform(self.dataframe, self.dataframe[self.variable_respuesta])
+            variables_encoded = target_encoder.fit_transform(self.dataframe, self.dataframe[self.variable_respuesta].astype(int))
+
+
+        # Guardar el encoder
+        with open(f'{self.ruta_guardar_encoder}/{nombre_encoder}', 'wb') as f:
+            pickle.dump(target_encoder, f)
 
         return variables_encoded
 
-    def frequency_encoding(self):
+    def frequency_encoding(self, nombre_encoder = "target_encoder.pkl"):
         """
         Realiza codificación de frecuencia en las columnas especificadas en el diccionario de codificación.
 
@@ -255,5 +267,5 @@ class Encoding:
 
                 # mapeamos los valores obtenidos en el paso anterior, sobreescribiendo la columna original
                 self.dataframe[categoria] = self.dataframe[categoria].map(frecuencia)
-        
+
         return self.dataframe

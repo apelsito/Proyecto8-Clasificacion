@@ -352,6 +352,16 @@ class Desbalanceo:
         
         df_resampled = pd.concat([pd.DataFrame(X_resampled, columns=X.columns), pd.Series(y_resampled, name=self.variable_dependiente)], axis=1)
         return df_resampled
+    
+    def balancear_clases_smotenc(self,categorical_columns,neighbors_k = 5):
+        X = self.dataframe.drop(columns=[self.variable_dependiente])
+        y = self.dataframe[self.variable_dependiente]
+
+        smotenc = SMOTENC(categorical_features=[categorical_columns], random_state=42, k_neighbors=neighbors_k) 
+        X_resampled, y_resampled = smotenc.fit_resample(X, y)
+        
+        df_resampled = pd.concat([pd.DataFrame(X_resampled, columns=X.columns), pd.Series(y_resampled, name=self.variable_dependiente)], axis=1)
+        return df_resampled
 
 def detectar_orden_cat(df,lista_cat,var_respuesta):
     for categoria in lista_cat:
