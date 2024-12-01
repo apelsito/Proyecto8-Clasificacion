@@ -315,9 +315,12 @@ class AnalisisModelosClasificacion:
 
 # Función para asignar colores
 def color_filas_por_modelo(row):
-    if row["modelo"] == "decision tree":
+    if row["modelo"] == "decision_tree":
         return ["background-color: #e6b3e0; color: black"] * len(row)  
     
+    elif row["modelo"] == "logistic_regression":
+        return ["background-color: #b3d1ff; color: black"] * len(row)
+
     elif row["modelo"] == "random_forest":
         return ["background-color: #c2f0c2; color: black"] * len(row) 
 
@@ -327,7 +330,7 @@ def color_filas_por_modelo(row):
     elif row["modelo"] == "xgboost":
         return ["background-color: #f7b3c2; color: black"] * len(row)  
 
-    elif row["modelo"] == "regresion lineal":
+    elif row["modelo"] == "lineal_regression":
         return ["background-color: #b3d1ff; color: black"] * len(row)  
     
     return ["color: black"] * len(row)
