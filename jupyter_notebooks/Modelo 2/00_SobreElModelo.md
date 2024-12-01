@@ -1,8 +1,11 @@
-# Modelo 1
+# Modelo 2
 - Se realiza un eda inicial
 ### Gestión Datos
 - Se gestionan los datos, eliminando:
     - Columna EmployeeID
+- Se eliminan duplicados
+
+- Se gestionan los datos, eliminando:
     - Columna EmployeeCount
     - StandardHours
     - Over18
@@ -34,6 +37,7 @@
     - EnvironmentSatisfaction
     - JobSatisfaction
     - WorkLifeBalance
+    
 ### Encoding
 - Se realiza el encoding de las columnas categóricas:
     - Target Encoder para Ordinales
@@ -42,17 +46,8 @@
 ### feature-Scaling
 - Se realiza Robust Scaler
 
-
 ### Outliers
-- Se gestionan los outliers con Isolation Forest agrupando por:
-    - No es outlier: No se detecto nunca como outlier
-    - Improbable outlier: Se detecto menos del 60% de las veces como outlier
-    - Probable outlier: se detecto 60% o más de las veces como outlier
-    - Total outlier: se detecto siempre como outlier
-
 - No se tocan los Outliers
-- Se eliminan Total y Probable donde Attrion sea "No"
-- No se toca ningún outlier cuyo Attrition sea "Yes"
 
 ### Desbalanceo
 - No se realiza Desbalanceo
