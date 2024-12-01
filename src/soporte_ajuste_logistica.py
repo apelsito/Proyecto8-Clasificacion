@@ -247,7 +247,7 @@ class AnalisisModelosClasificacion:
         plt.legend()
         plt.show()
     
-    def importancia_predictores(self, modelo_nombre):
+    def importancia_predictores(self, modelo_nombre, grafica_size = (10, 6)):
         """
         Calcula y grafica la importancia de las características para el modelo seleccionado.
         """
@@ -273,7 +273,7 @@ class AnalisisModelosClasificacion:
             "Importance": importancia
         }).sort_values(by="Importance", ascending=False)
 
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize= grafica_size)
         sns.barplot(x="Importance", y="Feature", data=importancia_df, palette="viridis")
         plt.title(f"Importancia de Características ({modelo_nombre})")
         plt.xlabel("Importancia")

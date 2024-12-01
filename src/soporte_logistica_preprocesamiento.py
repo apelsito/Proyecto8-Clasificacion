@@ -363,15 +363,21 @@ class Desbalanceo:
         df_resampled = pd.concat([pd.DataFrame(X_resampled, columns=X.columns), pd.Series(y_resampled, name=self.variable_dependiente)], axis=1)
         return df_resampled
 
-def detectar_orden_cat(df,lista_cat,var_respuesta):
-    for categoria in lista_cat:
-        print(f"Estamos evaluando el orden de la variable {categoria.upper()}")
-        df_cross_tab=pd.crosstab(df[categoria], df[var_respuesta])
-        display(df_cross_tab)
-
-        chi2, p, dof, expected= chi2_contingency(df_cross_tab)
-
-        if p <0.05:
-            print(f"La variable {categoria} SI tiene orden")
-        else:
-            print(f"La variable {categoria} NO tiene orden")
+    def balancear_clases_tomek(self):
+        X = self.dataframe.drop(columns=[self.variable_dependiente])
+        y = self.dataframe[self.variable_dependiente]
+        
+        # Configurar Tomek Links
+        tomek = TomekLinks(sampling_strategy="auto")
+        
+        # Aplicar Tomek Links
+        X_resampled, y_resampled = tomek.fit_resample(X, y)
+        
+        # Crear un DataFrame resultante
+        df_resampled = pd.concat(
+            [pd.DataFrame(X_resampled, columns=X.columns), pd.Series(y_resampled, name=self.variable_dependiente)],
+            axis=1
+        )
+        
+        return df_resampled
+    

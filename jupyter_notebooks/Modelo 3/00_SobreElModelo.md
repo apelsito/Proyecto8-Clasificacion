@@ -1,4 +1,4 @@
-# Modelo 2
+# Modelo 3
 - Se realiza un eda inicial
 ### Gestión Datos
 - Se gestionan los datos, eliminando:
