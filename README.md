@@ -40,15 +40,14 @@ Proyecto7-PrediccionCasas/
 │   ├── Modelo X/               # Carpeta del modelo
 │   │   ├── 00_Sobre_El_Modelo.md
 │   │   ├── 01_eda_inicial.ipynb
-│   │   ├── 02_gestion_nulos.ipynb
-│   │   ├── 03_eda_sin_nulos.ipynb
+│   │   ├── 02_gestion_datos.ipynb
+│   │   ├── 03_eda_gestionado.ipynb
 │   │   ├── 04_encoding.ipynb
 │   │   ├── 05_feature_scaling.ipynb
-│   │   ├── 06_gestion_outliers.ipynb
-│   │   ├── 07_regresion_lineal.ipynb
-│   │   ├── 08_decision_tree.ipynb
-│   │   ├── 09_gradient_boosting.ipynb
-│   │   ├── 10_XGBoost.ipynb
+│   │   ├── 06_outliers.ipynb
+│   │   ├── 07_desbalanceo.ipynb
+│   │   ├── 08_modelos.ipynb
+│   │   ├── 09_obtener_mejor_modelo.ipynb
 │ 
 ├── src/                        # Archivos .py para funciones auxiliares del proyecto.
 │
@@ -136,21 +135,20 @@ cd Proyecto8-Clasificacion
    - JobSatisfaction
    - WorkLifeBalance
 ---
-
----
 ### Fase 4 Encoding
 - Se realiza el encoding de las columnas categóricas:
     - Target Encoder para Ordinales
     - OneHot Encoder para Nominales
 ---
 ### Fase 5: Feature Scaling
-   - Se realiza Robust Scaler
+- Se realiza Robust Scaler
 ---
 ### Fase 6: Gestión Outliers
-   - No se tocan los Outliers
+- No se tocan los Outliers
 ---
 ### Fase 7: Desbalanceo
 - Se realiza **smotenc** incluyendo categorías para evitar generar nuevas
+- Se realiza después **tomek**
 
 ### Fase 8: Ejecución y Comparación de Modelos Predictivos
 #### Modelos Usados:
@@ -161,7 +159,10 @@ cd Proyecto8-Clasificacion
 - XGBooster
 ---
 # Resultados del Mejor Modelo (Modelo 4)
-
+- Mejor modelo XGBooster:
+- Tiene un test kappa alto.
+- Mantiene un buen equilibrio entre train y test. No es overfitting.
+- Es un modelo que es rápido y eficiente y nos permite ajustarle parámetros sin muchos quebraderos de cabeza.
 
 # Streamlit
 Se ha creado una web con streamlit en local que permite al usuario realizar predicciones sobre un empleado en caso de querer ejecutarla deberá:
