@@ -22,12 +22,12 @@ target_encoder, one_hot_encoder, robust_scaler, modelo_xgb =  load_models()
 # Configurar la página de Streamlit
 st.set_page_config(
     page_title="Predicción de Salida de Empleados",
-    page_icon="🏠",
+    page_icon="🧑",
     layout="centered",
 )
 
 # Título y descripción
-st.title("🏠 Recursos Humanos Pro 5000")
+st.title("🧑 Recursos Humanos Pro 5000 🔧")
 st.write("Usa esta aplicación para predecir si un empleado se va de la empresa ¡Sorpréndete con la magia de los datos! 🚀")
 
 # Mostrar una imagen llamativa
@@ -91,12 +91,16 @@ with col11:
     satisfaccion_laboral = st.selectbox("Satisfacción Laboral",lista_job_satisfaction)
     balance_vida_trabajo = st.selectbox("Balance Vida-Trabajo del Empleado",lista_work_life_balance)
 
-
 participacion_laboral = st.selectbox("Participación Laboral del Empleado",lista_job_involvement)
 
 # Botón para realizar la predicción
 if st.button("💡 Predecir Salida del Empleado"):
-    prediction = realizar_prediccion(lista_business_travel,lista_department,lista_distance_from_home,lista_education,lista_education_field,lista_gender,lista_job_level,lista_job_role,lista_marital_status,lista_num_companies_worked,lista_percent_salary_hike,lista_stock_option_level,lista_training_times_last_year,lista_environment_satisfaction,lista_job_satisfaction,lista_work_life_balance,lista_job_involvement,target_encoder,one_hot_encoder,robust_scaler,modelo_xgb)
+    prediction = realizar_prediccion(edad,viajes,departamento,distancia_a_casa,educacion,area_educacion,
+                                     genero,nivel_laboral,rol_laboral,estado_marital,sueldo_mensual,companies_previas,
+                                     aumento_salario_porcentual,opciones_bolsa,anios_trabajados,cursos_acometidos_anio_pasado,
+                                     anios_en_empresa,satisfaccion_ambiente_trabajo,anios_desde_ascenso,anios_con_el_manager,
+                                     satisfaccion_laboral,balance_vida_trabajo,participacion_laboral,
+                                     target_encoder,one_hot_encoder,robust_scaler,modelo_xgb)
     # Mostrar el resultado
     if prediction[0] == 0:
         st.success(f"El empleado es muy probable que no se vaya!.")

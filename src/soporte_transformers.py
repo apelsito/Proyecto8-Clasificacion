@@ -43,55 +43,56 @@ def load_models():
 def load_options():
 
     # Cargar cada archivo con su correspondiente variable
-    with open('../datos/lista_opciones/0_lista_opciones_BusinessTravel.pkl', 'rb') as archivo:
+    
+    with open("../datos/lista_opciones/0_lista_opciones_BusinessTravel.plk", 'rb') as archivo:
         lista_business_travel = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/1_lista_opciones_Department.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/1_lista_opciones_Department.plk', 'rb') as archivo:
         lista_department = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/2_lista_opciones_DistanceFromHome.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/2_lista_opciones_DistanceFromHome.plk', 'rb') as archivo:
         lista_distance_from_home = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/3_lista_opciones_Education.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/3_lista_opciones_Education.plk', 'rb') as archivo:
         lista_education = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/4_lista_opciones_EducationField.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/4_lista_opciones_EducationField.plk', 'rb') as archivo:
         lista_education_field = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/5_lista_opciones_Gender.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/5_lista_opciones_Gender.plk', 'rb') as archivo:
         lista_gender = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/6_lista_opciones_JobLevel.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/6_lista_opciones_JobLevel.plk', 'rb') as archivo:
         lista_job_level = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/7_lista_opciones_JobRole.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/7_lista_opciones_JobRole.plk', 'rb') as archivo:
         lista_job_role = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/8_lista_opciones_MaritalStatus.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/8_lista_opciones_MaritalStatus.plk', 'rb') as archivo:
         lista_marital_status = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/9_lista_opciones_NumCompaniesWorked.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/9_lista_opciones_NumCompaniesWorked.plk', 'rb') as archivo:
         lista_num_companies_worked = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/10_lista_opciones_PercentSalaryHike.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/10_lista_opciones_PercentSalaryHike.plk', 'rb') as archivo:
         lista_percent_salary_hike = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/11_lista_opciones_StockOptionLevel.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/11_lista_opciones_StockOptionLevel.plk', 'rb') as archivo:
         lista_stock_option_level = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/12_lista_opciones_TrainingTimesLastYear.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/12_lista_opciones_TrainingTimesLastYear.plk', 'rb') as archivo:
         lista_training_times_last_year = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/13_lista_opciones_EnvironmentSatisfaction.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/13_lista_opciones_EnvironmentSatisfaction.plk', 'rb') as archivo:
         lista_environment_satisfaction = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/14_lista_opciones_JobSatisfaction.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/14_lista_opciones_JobSatisfaction.plk', 'rb') as archivo:
         lista_job_satisfaction = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/15_lista_opciones_WorkLifeBalance.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/15_lista_opciones_WorkLifeBalance.plk', 'rb') as archivo:
         lista_work_life_balance = pickle.load(archivo)
 
-    with open('../datos/lista_opciones/16_lista_opciones_JobInvolvement.pkl', 'rb') as archivo:
+    with open('../datos/lista_opciones/16_lista_opciones_JobInvolvement.plk', 'rb') as archivo:
         lista_job_involvement = pickle.load(archivo)
 
     return lista_business_travel,lista_department,lista_distance_from_home,lista_education,lista_education_field,lista_gender,lista_job_level,lista_job_role,lista_marital_status,lista_num_companies_worked,lista_percent_salary_hike,lista_stock_option_level,lista_training_times_last_year,lista_environment_satisfaction,lista_job_satisfaction,lista_work_life_balance,lista_job_involvement
