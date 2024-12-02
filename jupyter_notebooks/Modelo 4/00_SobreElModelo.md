@@ -1,4 +1,4 @@
-# Modelo 4
+# Modelo 4 (Final)
 - Se realiza un eda inicial
 ### Gestión Datos
 - Se gestionan los datos, eliminando:
@@ -52,3 +52,11 @@
 ### Desbalanceo
 - Se realiza smotenc incluyendo categorías para evitar generar nuevas
 - Se realiza después tomek
+
+### Modelos
+- Mejor modelo XGBooster:
+- Tiene un test kappa alto.
+- Mantiene un buen equilibrio entre train y test. No es overfitting.
+- Es un modelo que es rápido y eficiente y nos permite ajustarle parámetros sin muchos quebraderos de cabeza.
+
+

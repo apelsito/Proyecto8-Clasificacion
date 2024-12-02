@@ -160,7 +160,7 @@ cd Proyecto8-Clasificacion
 - Gradient Boosting
 - XGBooster
 ---
-# Resultados del Mejor Modelo (Modelo ??)
+# Resultados del Mejor Modelo (Modelo 4)
 
 # Streamlit
 Se ha creado una web con streamlit en local que permite al usuario realizar predicciones sobre un empleado en caso de querer ejecutarla deberá:
