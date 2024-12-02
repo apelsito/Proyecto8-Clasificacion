@@ -94,25 +94,7 @@ def load_options():
     with open('../datos/lista_opciones/16_lista_opciones_JobInvolvement.pkl', 'rb') as archivo:
         lista_job_involvement = pickle.load(archivo)
 
-    return {
-        'lista_business_travel': lista_business_travel,
-        'lista_department': lista_department,
-        'lista_distance_from_home': lista_distance_from_home,
-        'lista_education': lista_education,
-        'lista_education_field': lista_education_field,
-        'lista_gender': lista_gender,
-        'lista_job_level': lista_job_level,
-        'lista_job_role': lista_job_role,
-        'lista_marital_status': lista_marital_status,
-        'lista_num_companies_worked': lista_num_companies_worked,
-        'lista_percent_salary_hike': lista_percent_salary_hike,
-        'lista_stock_option_level': lista_stock_option_level,
-        'lista_training_times_last_year': lista_training_times_last_year,
-        'lista_environment_satisfaction': lista_environment_satisfaction,
-        'lista_job_satisfaction': lista_job_satisfaction,
-        'lista_work_life_balance': lista_work_life_balance,
-        'lista_job_involvement': lista_job_involvement
-    }
+    return lista_business_travel,lista_department,lista_distance_from_home,lista_education,lista_education_field,lista_gender,lista_job_level,lista_job_role,lista_marital_status,lista_num_companies_worked,lista_percent_salary_hike,lista_stock_option_level,lista_training_times_last_year,lista_environment_satisfaction,lista_job_satisfaction,lista_work_life_balance,lista_job_involvement
 
 
 def realizar_prediccion(edad, viajes, departamento, distancia_a_casa,

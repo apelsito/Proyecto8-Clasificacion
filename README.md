@@ -1,32 +1,17 @@
-# Análisis y Modelado: Predicción de Precios de Casas 🏠
 
-# Descripción del Proyecto 💡
 
-Este proyecto tiene como objetivo desarrollar un modelo predictivo capaz de estimar el precio de propiedades inmobiliarias en Madrid, utilizando un conjunto de datos real con 40 columnas. Estas columnas incluyen información clave sobre las propiedades, como su tamaño, ubicación, número de habitaciones, tipo de propiedad y más. 
-
-El propósito principal es ofrecer una herramienta útil para agentes inmobiliarios, compradores y vendedores, que permita tomar decisiones más informadas basadas en datos.
+# Proyecto: Predicción de Retención de Empleados 🏢
 
 ## 🎯 Objetivo
-1. **Carga y Exploración de Datos**:
-   - Identificar patrones en los datos.
-   - Detectar valores atípicos y posibles inconsistencias.
 
-2. **Preprocesamiento**:
-   - Limpieza y preparación de datos.
-   - Codificación de variables categóricas.
-   - Escalado de variables numéricas.
-   - Gestión de valores nulos y outliers.
+El objetivo principal de este proyecto es construir un modelo de machine learning capaz de predecir si un empleado permanecerá en la empresa o decidirá marcharse. A través de este análisis, se busca identificar patrones y los factores más relevantes que influyen en la retención y rotación del personal, como:
 
-3. **Modelado**:
-   - Entrenamiento de múltiples modelos de Machine Learning.
-   - Evaluación de su desempeño utilizando métricas como RMSE y R².
+- Satisfacción laboral.
+- Horas trabajadas.
+- Relaciones con los jefes.
+- Promociones o aumentos salariales.
 
-4. **Visualización**:
-   - Mostrar gráficamente la importancia de las variables.
-   - Analizar los errores y predicciones del modelo.
-
-5. **Optimización**:
-   - Ajustar hiperparámetros para maximizar la precisión del modelo.
+Además de construir un modelo predictivo preciso, el proyecto pretende interpretar los resultados obtenidos para proponer estrategias prácticas que ayuden a mejorar la retención de empleados, contribuyendo a crear un entorno laboral más saludable y efectivo.
 
 ## Estructura del Proyecto 🗂️
 
