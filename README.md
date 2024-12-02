@@ -148,7 +148,14 @@ cd Proyecto8-Clasificacion
 - Tiene un test kappa alto.
 - Mantiene un buen equilibrio entre train y test. No es overfitting.
 - Es un modelo que es rápido y eficiente y nos permite ajustarle parámetros sin muchos quebraderos de cabeza.
-
+### Métricas
+![Texto alternativo](src/img/métricas%20ganadoras.png)
+### Matriz Confusión
+![Texto alternativo](src/img/matriz_confusion.png)
+### Curva Roc
+![Texto alternativo](src/img/curva_roc.png)
+### Shap Plot
+![Texto alternativo](src/img/shap%20plot.png)
 # Streamlit
 Se ha creado una web con streamlit en local que permite al usuario realizar predicciones sobre un empleado en caso de querer ejecutarla deberá:
 
